@@ -1,0 +1,6 @@
+@WebsiteCollections.MinimalApi_HostAddress = http://localhost:5166
+
+GET {{WebsiteCollections.MinimalApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
