@@ -1,0 +1,60 @@
+﻿using WebsiteCollections.MinimalApi.Models;
+using WebsiteCollections.MinimalApi.Repositories;
+using Microsoft.Extensions.Logging;
+
+namespace WebsiteCollections.MinimalApi.Services
+{
+    public class WebsiteCollectionsService : IWebsiteCollectionsService
+    {
+        private readonly IWebsiteCollectionsRepository _repository;
+        private readonly ILogger<WebsiteCollectionsService> _logger;
+
+        public WebsiteCollectionsService(IWebsiteCollectionsRepository repository, ILogger<WebsiteCollectionsService> logger)
+        {
+            _repository = repository;
+            _logger = logger;
+        }
+
+        public async Task AddWebsiteAsync(WebsiteModel website)
+        {
+            _logger.LogInformation("Adding website {@Website}", website);
+            try
+            {
+                await _repository.AddWebsite(website);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while adding website {@Website}", website);
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<WebsiteModel>> GetWebsiteCollectionAsync(string collection)
+        {
+            _logger.LogInformation("Getting website collection {Collection}", collection);
+            try
+            {
+                return await _repository.GetWebsiteCollection(collection);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while retrieving collection {collection}", collection);
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<WebsiteModel>> GetAllWebsiteCollectionsAsync()
+        {
+            _logger.LogInformation("Getting all website collections");
+            try
+            {
+                return await _repository.GetAllWebsiteCollections();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while retrieving all collections");
+                throw;
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+services:
+  nosql.db:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - local-network
+    
+  websitecollections.minimalapi:
+    image: ${DOCKER_REGISTRY-}websitecollectionsminimalapi
+    build:
+      context: .
+      dockerfile: WebsiteCollections.MinimalApi/Dockerfile
+    networks:
+      - local-network
+
+volumes:
+  mongodb_data:
+  
+networks:
+  local-network:    
