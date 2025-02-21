@@ -1,6 +1,23 @@
-@WebsiteCollections.MinimalApi_HostAddress = http://localhost:5166
+@WebsiteCollections.MinimalApi_HostAddress = http://localhost:8080
 
-GET {{WebsiteCollections.MinimalApi_HostAddress}}/weatherforecast/
+### Get all collections
+GET {{WebsiteCollections.MinimalApi_HostAddress}}/collections/
 Accept: application/json
 
-###
+### Get "development" collection
+GET {{WebsiteCollections.MinimalApi_HostAddress}}/collections/development
+Accept: application/json
+
+### Add new website to collection
+POST {{WebsiteCollections.MinimalApi_HostAddress}}/collections/
+Accept: application/json
+Content-Type: application/json
+{
+  "url": "https://github.com/ardalis/ApiEndpoints",
+  "collection": "development",
+  "title": "Ardalis ApiEndpoints"
+}
+
+### Health check
+GET {{WebsiteCollections.MinimalApi_HostAddress}}/health
+Accept: application/json

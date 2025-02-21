@@ -19,39 +19,39 @@ namespace WebsiteCollections.MinimalApi.Repositories
             try
             {
                 await _websiteCollection.InsertOneAsync(website);
-                _logger.LogInformation("Website added to collection {Collection}", website.Collection);
+                _logger.LogInformation("Website added to the {Collection} collection", website.Collection);
             }
             catch (MongoException ex)
             {
-                _logger.LogError(ex, "Error while adding website to collection {Collection}", website.Collection);
+                _logger.LogError(ex, "Error while adding website to the {Collection} collection", website.Collection);
                 throw;
             }
         }
 
         public async Task<IEnumerable<WebsiteModel>> GetAllWebsiteCollections()
         {
-            _logger.LogInformation("Retrieving all website collections");
+            _logger.LogInformation("Retrieving all collections");
             try
             {
                 return await _websiteCollection.Find(website => true).ToListAsync();
             }
             catch (MongoException ex)
             {
-                _logger.LogError(ex, "Error while retrieving all website collections");
+                _logger.LogError(ex, "Error while retrieving all collections");
                 throw;
             }
         }
 
         public async Task<IEnumerable<WebsiteModel>> GetWebsiteCollection(string collection)
         {
-            _logger.LogInformation("Retrieving website collection {Collection}", collection);
+            _logger.LogInformation("Retrieving the {Collection} collection", collection);
             try
             {
                 return await _websiteCollection.Find(website => website.Collection == collection).ToListAsync();
             }
             catch (MongoException ex)
             {
-                _logger.LogError(ex, "Error while retrieving website collection {Collection}", collection);
+                _logger.LogError(ex, "Error while retrieving the {Collection} collection", collection);
                 throw;
             }
         }

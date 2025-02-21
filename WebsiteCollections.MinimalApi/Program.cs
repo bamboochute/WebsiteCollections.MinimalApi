@@ -1,5 +1,5 @@
-using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
+using Scalar.AspNetCore;
 using WebsiteCollections.MinimalApi.Endpoints;
 using WebsiteCollections.MinimalApi.Models;
 using WebsiteCollections.MinimalApi.Repositories;
@@ -24,13 +24,25 @@ builder.Services.AddSingleton<IMongoCollection<WebsiteModel>>(websiteCollection)
 builder.Services.AddSingleton<IWebsiteCollectionsRepository, WebsiteCollectionsRepository>();
 builder.Services.AddSingleton<IWebsiteCollectionsService, WebsiteCollectionsService>();
 
+builder.Services
+    .AddSingleton(sp => mongoClient)
+    .AddHealthChecks()
+    .AddMongoDb(
+        name: "mongodb",
+        timeout: TimeSpan.FromSeconds(3),
+        tags: ["ready"]
+    );
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.MapWebsiteCollectionsEndpoints();
+
+app.MapHealthChecks("/health");
 
 app.Run();

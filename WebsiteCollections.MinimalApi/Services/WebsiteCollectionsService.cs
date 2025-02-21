@@ -1,6 +1,5 @@
 ﻿using WebsiteCollections.MinimalApi.Models;
 using WebsiteCollections.MinimalApi.Repositories;
-using Microsoft.Extensions.Logging;
 
 namespace WebsiteCollections.MinimalApi.Services
 {
