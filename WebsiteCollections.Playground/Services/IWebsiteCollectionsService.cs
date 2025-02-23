@@ -1,6 +1,6 @@
-﻿using WebsiteCollections.MinimalApi.Models;
+﻿using WebsiteCollections.Playground.Models;
 
-namespace WebsiteCollections.MinimalApi.Services
+namespace WebsiteCollections.Playground.Services
 {
     public interface IWebsiteCollectionsService
     {

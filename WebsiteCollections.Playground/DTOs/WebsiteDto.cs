@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
-namespace WebsiteCollections.MinimalApi.DTOs
+namespace WebsiteCollections.Playground.DTOs
 {
     public class WebsiteDto
     {

@@ -1,7 +1,7 @@
-﻿using WebsiteCollections.MinimalApi.Models;
-using WebsiteCollections.MinimalApi.Repositories;
+﻿using WebsiteCollections.Playground.Models;
+using WebsiteCollections.Playground.Repositories;
 
-namespace WebsiteCollections.MinimalApi.Services
+namespace WebsiteCollections.Playground.Services
 {
     public class WebsiteCollectionsService : IWebsiteCollectionsService
     {

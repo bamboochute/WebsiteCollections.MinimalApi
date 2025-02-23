@@ -1,15 +1,15 @@
-@WebsiteCollections.MinimalApi_HostAddress = http://localhost:8080
+@WebsiteCollections.Playground_HostAddress = http://localhost:8080
 
 ### Get all collections
-GET {{WebsiteCollections.MinimalApi_HostAddress}}/collections/
+GET {{WebsiteCollections.Playground_HostAddress}}/collections/
 Accept: application/json
 
 ### Get "development" collection
-GET {{WebsiteCollections.MinimalApi_HostAddress}}/collections/development
+GET {{WebsiteCollections.Playground_HostAddress}}/collections/development
 Accept: application/json
 
 ### Add new website to collection
-POST {{WebsiteCollections.MinimalApi_HostAddress}}/collections/
+POST {{WebsiteCollections.Playground_HostAddress}}/collections/
 Accept: application/json
 Content-Type: application/json
 {
@@ -19,5 +19,5 @@ Content-Type: application/json
 }
 
 ### Health check
-GET {{WebsiteCollections.MinimalApi_HostAddress}}/health
+GET {{WebsiteCollections.Playground_HostAddress}}/health
 Accept: application/json

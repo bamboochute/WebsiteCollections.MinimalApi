@@ -1,8 +1,8 @@
-﻿using WebsiteCollections.MinimalApi.DTOs;
-using WebsiteCollections.MinimalApi.Models;
-using WebsiteCollections.MinimalApi.Services;
+﻿using WebsiteCollections.Playground.DTOs;
+using WebsiteCollections.Playground.Models;
+using WebsiteCollections.Playground.Services;
 
-namespace WebsiteCollections.MinimalApi.Endpoints
+namespace WebsiteCollections.Playground.Endpoints
 {
     public static class WebsiteCollectionsEndpoints
     {

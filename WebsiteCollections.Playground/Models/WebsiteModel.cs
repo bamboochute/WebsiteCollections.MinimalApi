@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace WebsiteCollections.MinimalApi.Models
+namespace WebsiteCollections.Playground.Models
 {
     public class WebsiteModel
     {

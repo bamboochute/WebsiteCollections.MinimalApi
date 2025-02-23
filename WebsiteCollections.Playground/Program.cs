@@ -1,9 +1,9 @@
 using MongoDB.Driver;
 using Scalar.AspNetCore;
-using WebsiteCollections.MinimalApi.Endpoints;
-using WebsiteCollections.MinimalApi.Models;
-using WebsiteCollections.MinimalApi.Repositories;
-using WebsiteCollections.MinimalApi.Services;
+using WebsiteCollections.Playground.Endpoints;
+using WebsiteCollections.Playground.Models;
+using WebsiteCollections.Playground.Repositories;
+using WebsiteCollections.Playground.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
